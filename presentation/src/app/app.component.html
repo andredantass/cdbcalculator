@@ -1,0 +1,64 @@
+<div class="container p-5">
+  <h5 class="pb-4">CDB CALCULATOR</h5>
+  <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #007bff solid; border-right: none; border-top:none; border-bottom:none">
+    <div class="card-body">
+      <h4 class="card-title mb-3 text-primary text-uppercase">CDB</h4>
+
+      <form [formGroup]="cdbform">
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="monetary" formControlName="monetary" placeholder="Monetary">
+              <label for="monetary">Valor Inicial</label>
+              <div *ngIf="cdbform.controls['monetary']?.invalid && (cdbform.controls['monetary']?.dirty || cdbform.controls['monetary']?.touched)" class="invalid">
+                Valor Obrigatório
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="period" formControlName="period" placeholder="Period">
+              <label for="perid">Tempo Investimento</label>
+              <div *ngIf="cdbform.controls['period']?.invalid && (cdbform.controls['period']?.dirty || cdbform.controls['period']?.touched) " class="invalid">
+                Valor Obrigatório
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="floatingTextInput2">Valor Bruto</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" value="{{grossValue}}" formControlName="grossValue" class="form-control">
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="floatingTextInput2">Valor Liquido</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" value="{{netValue}}" formControlName="netValue" class="form-control">
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Eu concordo com os termos e condições de investimento.</label>
+        </div>
+        <div class="buttons">
+          <button type="button" class="btn btn-primary" (click)="calculateCDB()">Calcular</button>
+          <button type="button" class="btn btn-danger" (click)="limpar()">Apagar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
