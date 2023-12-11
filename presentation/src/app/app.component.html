@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="monetary" formControlName="monetary" placeholder="Monetary">
+              <input type="text" class="form-control" id="monetary" formControlName="monetary" placeholder="Monetary" onlyNumber>
               <label for="monetary">Valor Inicial</label>
               <div *ngIf="cdbform.controls['monetary']?.invalid && (cdbform.controls['monetary']?.dirty || cdbform.controls['monetary']?.touched)" class="invalid">
                 Valor Obrigatório
@@ -17,7 +17,7 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="period" formControlName="period" placeholder="Period">
+              <input type="text" class="form-control" id="period" formControlName="period" placeholder="Period" onlyNumber>
               <label for="perid">Tempo Investimento</label>
               <div *ngIf="cdbform.controls['period']?.invalid && (cdbform.controls['period']?.dirty || cdbform.controls['period']?.touched) " class="invalid">
                 Valor Obrigatório
